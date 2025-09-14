@@ -6,7 +6,7 @@ import GlowPanel from './GlowPanel';
 const YouTubeSection: React.FC = () => {
     return (
         <div className="bg-black/20">
-            <Section id="youtube" title="[Son_Videolarımız]">
+            <Section id="youtube" title="[Latest_Videos]">
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                     {YOUTUBE_VIDEOS_DATA.map(video => (
                         <GlowPanel key={video.id} className="group rounded-lg bg-slate-900/40 backdrop-blur-sm border border-slate-800 transition-all duration-300 hover:-translate-y-2">

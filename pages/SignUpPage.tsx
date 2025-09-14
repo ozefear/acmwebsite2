@@ -16,6 +16,7 @@ const SignUpPage: React.FC = () => {
         schoolNo: '',
         email: '',
         department: '',
+        classroom: '',
         dobDay: '',
         dobMonth: '',
         dobYear: '',
@@ -62,7 +63,7 @@ const SignUpPage: React.FC = () => {
             }
 
             setStatus('success');
-            setResponseMessage('Kayıt formunuz başarıyla gönderildi! Yönlendiriliyorsunuz...');
+            setResponseMessage('Sign up successful! Redirecting to our Instagram...');
             setTimeout(() => {
                 window.location.href = 'https://instagram.com/acmhacettepe';
             }, 2000);
@@ -70,7 +71,7 @@ const SignUpPage: React.FC = () => {
         } catch (error) {
             console.error('Sign-up form submission error:', error);
             setStatus('error');
-            setResponseMessage('Gönderim sırasında bir hata oluştu. Lütfen daha sonra tekrar deneyin.');
+            setResponseMessage('An error occurred during submission. Please try again later.');
         }
     };
 
@@ -82,12 +83,12 @@ const SignUpPage: React.FC = () => {
         if (preference1 && !preference2) {
             preferencesText = preference1;
         } else if (preference1 && preference2) {
-            preferencesText = `${preference1} ve ${preference2}`;
+            preferencesText = `${preference1} and ${preference2}`;
         } else {
              return null;
         }
 
-        return `Neden ${preferencesText} tercih ettiniz?`;
+        return `Why did you choose ${preferencesText}?`;
     };
 
     const inputStyles = "w-full bg-slate-900/50 border border-slate-600 rounded-md py-2 px-3 text-slate-200 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500";
@@ -102,10 +103,10 @@ const SignUpPage: React.FC = () => {
 
 
     return (
-        <Section id="signup" title="[Bize_Katıl]">
+        <Section id="signup" title="[Join_The_Chapter]">
             <div className="max-w-5xl mx-auto">
                 <p className="text-center text-lg text-slate-400 mb-12">
-                    Topluluğumuzun bir parçası olmaya hazır mısınız? ACM Hacettepe ile yolculuğunuza başlamak için aşağıdaki formu doldurun.
+                    Ready to be part of our community? Fill out the form below to start your journey with ACM Hacettepe.
                 </p>
                 <GlowPanel className="p-8 bg-slate-900/40 backdrop-blur-sm border border-slate-700 rounded-lg">
                     <form onSubmit={handleSubmit} className="space-y-8">
@@ -113,35 +114,35 @@ const SignUpPage: React.FC = () => {
                             {/* --- Left Column --- */}
                             <div className="space-y-6">
                                 <div>
-                                    <label htmlFor="nameSurname" className={labelStyles}>Ad Soyad *</label>
+                                    <label htmlFor="nameSurname" className={labelStyles}>Name Surname *</label>
                                     <input type="text" id="nameSurname" name="nameSurname" value={formData.nameSurname} onChange={handleChange} required className={inputStyles} />
                                 </div>
                                 <div>
-                                    <label htmlFor="schoolNo" className={labelStyles}>Okul No *</label>
+                                    <label htmlFor="schoolNo" className={labelStyles}>School No *</label>
                                     <input type="text" id="schoolNo" name="schoolNo" value={formData.schoolNo} onChange={handleChange} required className={inputStyles} />
                                 </div>
                                 <div>
-                                    <label htmlFor="department" className={labelStyles}>Bölüm *</label>
+                                    <label htmlFor="department" className={labelStyles}>Department *</label>
                                     <SearchableSelect
                                         options={DEPARTMENT_OPTIONS}
                                         value={formData.department}
                                         onChange={(value) => setFormData(prev => ({...prev, department: value}))}
-                                        placeholder="Bölümünüzü arayın..."
+                                        placeholder="Search for your department"
                                     />
                                      <input type="hidden" name="department" value={formData.department} required />
                                 </div>
                                 <div>
-                                    <label className={labelStyles}>Doğum Tarihi *</label>
+                                    <label className={labelStyles}>Date of Birth *</label>
                                     <div className="grid grid-cols-3 gap-2">
-                                        <select name="dobDay" value={formData.dobDay} onChange={handleChange} required className={`${inputStyles} appearance-none`}><option value="">Gün</option>{days.map(d => <option key={d} value={d}>{d}</option>)}</select>
-                                        <select name="dobMonth" value={formData.dobMonth} onChange={handleChange} required className={`${inputStyles} appearance-none`}><option value="">Ay</option>{months.map(m => <option key={m} value={m}>{m}</option>)}</select>
-                                        <select name="dobYear" value={formData.dobYear} onChange={handleChange} required className={`${inputStyles} appearance-none`}><option value="">Yıl</option>{years.map(y => <option key={y} value={y}>{y}</option>)}</select>
+                                        <select name="dobDay" value={formData.dobDay} onChange={handleChange} required className={`${inputStyles} appearance-none`}><option value="">Day</option>{days.map(d => <option key={d} value={d}>{d}</option>)}</select>
+                                        <select name="dobMonth" value={formData.dobMonth} onChange={handleChange} required className={`${inputStyles} appearance-none`}><option value="">Month</option>{months.map(m => <option key={m} value={m}>{m}</option>)}</select>
+                                        <select name="dobYear" value={formData.dobYear} onChange={handleChange} required className={`${inputStyles} appearance-none`}><option value="">Year</option>{years.map(y => <option key={y} value={y}>{y}</option>)}</select>
                                     </div>
                                 </div>
                                 <div>
-                                    <label htmlFor="howHear" className={labelStyles}>Bizden nasıl haberdar oldunuz? *</label>
+                                    <label htmlFor="howHear" className={labelStyles}>How did you hear about us? *</label>
                                     <select id="howHear" name="howHear" value={formData.howHear} onChange={handleChange} required className={`${inputStyles} appearance-none`}>
-                                        <option value="" disabled>Bir seçenek belirleyin</option>
+                                        <option value="" disabled>Select an option</option>
                                         {HEAR_ABOUT_US_OPTIONS.map(option => (
                                             <option key={option} value={option}>{option}</option>
                                         ))}
@@ -152,7 +153,7 @@ const SignUpPage: React.FC = () => {
                             {/* --- Right Column --- */}
                              <div className="space-y-6">
                                 <div>
-                                    <label htmlFor="phone" className={labelStyles}>Telefon Numarası *</label>
+                                    <label htmlFor="phone" className={labelStyles}>Phone number *</label>
                                     <input type="tel" id="phone" name="phone" value={formData.phone} onChange={handleChange} required className={inputStyles} />
                                 </div>
                                 <div>
@@ -160,43 +161,33 @@ const SignUpPage: React.FC = () => {
                                     <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required className={inputStyles} />
                                 </div>
                                 <div>
-                                    <label htmlFor="grade" className={labelStyles}>Sınıf Seviyesi *</label>
+                                    <label htmlFor="classroom" className={labelStyles}>Classroom *</label>
+                                    <input type="text" id="classroom" name="classroom" value={formData.classroom} onChange={handleChange} required className={inputStyles} />
+                                </div>
+                                <div>
+                                    <label htmlFor="grade" className={labelStyles}>Grade *</label>
                                     <select id="grade" name="grade" value={formData.grade} onChange={handleChange} required className={`${inputStyles} appearance-none`}>
-                                        <option value="" disabled>Seviyenizi seçin</option>
+                                        <option value="" disabled>Select your grade</option>
                                         {GRADE_OPTIONS.map(option => (
                                             <option key={option} value={option}>{option}</option>
                                         ))}
                                     </select>
                                 </div>
                                  <div>
-                                    <label htmlFor="preference1" className={labelStyles}>1. Tercih *</label>
+                                    <label htmlFor="preference1" className={labelStyles}>1. Preference *</label>
                                     <select id="preference1" name="preference1" value={formData.preference1} onChange={handleChange} required className={`${inputStyles} appearance-none`}>
-                                        <option value="" disabled>Birinci tercihi seçin</option>
+                                        <option value="" disabled>Select first preference</option>
                                         {COORDINATORSHIP_PREFERENCES.map(coord => (
-                                            <option 
-                                                key={coord.acronym} 
-                                                value={coord.acronym}
-                                                disabled={coord.acronym === 'AR-GE'}
-                                                className={coord.acronym === 'AR-GE' ? 'text-slate-500' : ''}
-                                            >
-                                                {coord.label} {coord.acronym === 'AR-GE' && '(Başvurular ayrı yapılmaktadır)'}
-                                            </option>
+                                            <option key={coord.acronym} value={coord.acronym}>{coord.label}</option>
                                         ))}
                                     </select>
                                 </div>
                                  <div>
-                                    <label htmlFor="preference2" className={labelStyles}>2. Tercih *</label>
-                                    <select id="preference2" name="preference2" value={formData.preference2} onChange={handleChange} required className={`${inputStyles} appearance-none`} disabled={!formData.preference1}>
-                                        <option value="" disabled>İkinci tercihi seçin</option>
+                                    <label htmlFor="preference2" className={labelStyles}>2. Preference</label>
+                                    <select id="preference2" name="preference2" value={formData.preference2} onChange={handleChange} className={`${inputStyles} appearance-none`} disabled={!formData.preference1}>
+                                        <option value="">Select second preference</option>
                                         {preference2Options.map(coord => (
-                                            <option 
-                                                key={coord.acronym} 
-                                                value={coord.acronym}
-                                                disabled={coord.acronym === 'AR-GE'}
-                                                className={coord.acronym === 'AR-GE' ? 'text-slate-500' : ''}
-                                            >
-                                                {coord.label} {coord.acronym === 'AR-GE' && '(Başvurular ayrı yapılmaktadır)'}
-                                            </option>
+                                            <option key={coord.acronym} value={coord.acronym}>{coord.label}</option>
                                         ))}
                                     </select>
                                 </div>
@@ -217,7 +208,7 @@ const SignUpPage: React.FC = () => {
                                     onChange={handleChange}
                                     required
                                     className={inputStyles}
-                                    placeholder="Neden bu koordinatörlükleri seçtiniz, bu kordinatörlüklerle ilgili en çok ilginizi çeken ne oldu?..."
+                                    placeholder="Tell us about your interest..."
                                 />
                             </div>
                         )}
@@ -226,20 +217,20 @@ const SignUpPage: React.FC = () => {
                         <div className="space-y-4 pt-4 border-t border-slate-700">
                              <label className="flex items-center space-x-3 font-mono text-slate-300 cursor-pointer">
                                 <input type="checkbox" name="wantsActiveMember" checked={formData.wantsActiveMember} onChange={handleCheckboxChange} className="form-checkbox h-5 w-5 bg-slate-800 border-slate-600 rounded text-purple-500 focus:ring-purple-500" />
-                                <span>Aktif üye olmak istiyorum.</span>
+                                <span>I want to become an active member.</span>
                             </label>
                              <label className="flex items-center space-x-3 font-mono text-slate-300 cursor-pointer">
                                 <input type="checkbox" name="wantsWhatsapp" checked={formData.wantsWhatsapp} onChange={handleCheckboxChange} className="form-checkbox h-5 w-5 bg-slate-800 border-slate-600 rounded text-purple-500 focus:ring-purple-500" />
-                                <span>Whatsapp ACM Hacettepe gruplarına eklenmek istiyorum.</span>
+                                <span>I want to be added to Whatsapp ACM Hacettepe groups.</span>
                             </label>
                              <label className="flex items-center space-x-3 font-mono text-slate-300 cursor-pointer">
                                 <input type="checkbox" name="wantsSmsEmail" checked={formData.wantsSmsEmail} onChange={handleCheckboxChange} className="form-checkbox h-5 w-5 bg-slate-800 border-slate-600 rounded text-purple-500 focus:ring-purple-500" />
-                                <span>Duyuru veya yenilikleri SMS ve E-posta ile almak istiyorum.</span>
+                                <span>I would like to receive announcements or innovations via SMS and Email.</span>
                             </label>
                              <label className="flex items-center space-x-3 font-mono text-slate-300 cursor-pointer">
                                 <input type="checkbox" name="hasApprovedConsent" checked={formData.hasApprovedConsent} onChange={handleCheckboxChange} required className="form-checkbox h-5 w-5 bg-slate-800 border-slate-600 rounded text-purple-500 focus:ring-purple-500" />
                                 <span>
-                                    <a href="#" className="underline text-purple-400 hover:text-purple-300 transition-colors">Aydınlatma metnini</a> okudum ve onaylıyorum. <span className="text-red-500">*</span>
+                                    <a href="#" className="underline text-purple-400 hover:text-purple-300 transition-colors">Illuminating text</a> I have read and approve. <span className="text-red-500">*</span>
                                 </span>
                             </label>
                         </div>
@@ -252,8 +243,8 @@ const SignUpPage: React.FC = () => {
                                 className="w-full px-8 py-3 font-mono font-bold text-lg text-white bg-gradient-to-r from-purple-600 to-indigo-600 rounded-md relative overflow-hidden group disabled:opacity-50 disabled:cursor-not-allowed"
                             >
                                 <span className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity duration-300"></span>
-                                <span className="relative glitch-hover" data-text={status === 'sending' ? 'Gönderiliyor...' : 'Kayıt Ol'}>
-                                    {status === 'sending' ? 'Gönderiliyor...' : 'Kayıt Ol'}
+                                <span className="relative glitch-hover" data-text={status === 'sending' ? 'Submitting...' : 'Sign Up'}>
+                                    {status === 'sending' ? 'Submitting...' : 'Sign Up'}
                                 </span>
                             </button>
                         </div>
@@ -268,21 +259,6 @@ const SignUpPage: React.FC = () => {
                             {responseMessage}
                         </div>
                     )}
-
-                    <div className="mt-8 pt-6 border-t border-slate-700 text-center">
-                        <p className="font-mono text-slate-400">
-                            Ar-Ge birimimize başvurmak için buraya tıklayabilirsiniz:
-                        </p>
-                        <a 
-                            href="https://arge.acmhacettepe.com/join-us" 
-                            target="_blank" 
-                            rel="noopener noreferrer" 
-                            className="inline-block mt-2 font-mono text-purple-400 hover:text-purple-300 underline transition-colors glitch-hover" 
-                            data-text="arge.acmhacettepe.com/join-us"
-                        >
-                            arge.acmhacettepe.com/join-us
-                        </a>
-                    </div>
                 </GlowPanel>
             </div>
         </Section>

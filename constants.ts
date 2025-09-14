@@ -35,8 +35,6 @@ export const ANNOUNCEMENTS_DATA: Announcement[] = [
     { id: 1, title: 'Fall \'24 Kick-Off Meeting', description: 'Join us for our first meeting of the semester! Learn about our plans, upcoming events, and how you can get involved.', image: 'https://picsum.photos/seed/announcement1/800/600' },
     { id: 2, title: 'Workshop: Intro to Git & GitHub', description: 'Master the basics of version control. This hands-on workshop is perfect for beginners.', image: 'https://picsum.photos/seed/announcement2/800/600' },
     { id: 3, title: 'Call for SIG Leaders', description: 'Want to lead a special interest group? We\'re looking for passionate students to head our SIGs in AI, Cybersecurity, and Game Dev.', image: 'https://picsum.photos/seed/announcement3/800/600' },
-    { id: 4, title: 'Tech Talk: The Future of Quantum Computing', description: 'Join us for an exciting talk on the advancements and future prospects of quantum computing.', image: 'https://picsum.photos/seed/announcement4/800/600' },
-    { id: 5, title: 'Volunteer for HUPROG 2024', description: 'Be a part of Turkey\'s premier programming competition! We\'re seeking volunteers to help with event logistics and participant support.', image: 'https://picsum.photos/seed/announcement5/800/600' },
 ];
 
 export const EVENT_SHOWCASE_DATA: EventShowcase[] = [

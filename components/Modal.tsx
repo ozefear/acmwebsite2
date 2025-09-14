@@ -39,7 +39,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children }) => {
             role="dialog"
         >
             <GlowPanel
-                className="w-full max-w-2xl bg-slate-900/80 border border-slate-700 rounded-lg shadow-2xl shadow-purple-900/50 flex flex-col overflow-hidden my-8"
+                className="w-full max-w-2xl bg-slate-900/80 border border-slate-700 rounded-lg shadow-2xl shadow-purple-900/50 flex flex-col overflow-hidden"
                 onClick={(e) => e.stopPropagation()}
             >
                 {/* Header */}
@@ -52,7 +52,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children }) => {
                 </div>
 
                 {/* Content */}
-                <div className="p-6 overflow-y-auto max-h-[80vh]">
+                <div className="p-6 overflow-y-auto">
                     {children}
                 </div>
             </GlowPanel>

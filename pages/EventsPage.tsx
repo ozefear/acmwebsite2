@@ -3,7 +3,7 @@ import { EVENT_SHOWCASE_DATA } from '../constants';
 import EventShowcaseDisplay from '../components/EventShowcaseDisplay';
 
 const EventsPage: React.FC = () => {
-    const title = "[Etkinliklerimiz]";
+    const title = "[Our_Events]";
 
     return (
         <section id="events" className="py-20 md:py-28">

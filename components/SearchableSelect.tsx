@@ -80,7 +80,7 @@ const SearchableSelect: React.FC<SearchableSelectProps> = ({ options, value, onC
                             </li>
                         ))
                     ) : (
-                        <li className="px-3 py-2 text-slate-500">Bulunamadı</li>
+                        <li className="px-3 py-2 text-slate-500">No options found</li>
                     )}
                 </ul>
             )}

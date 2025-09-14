@@ -229,15 +229,15 @@ const Hero: React.FC = () => {
                     ACM HACETTEPE
                 </h1>
                 <p className="mt-6 max-w-2xl text-lg md:text-xl text-slate-400">
-                    ACM Hacettepe’ye hoş geldin! Burası birlikte üreten, paylaşan, öğrenen ve eğlenirken kendini geliştirenlerin adresi.
+                    Welcome to the digital frontier of ACM Hacettepe. We are a community of creators, innovators, and problem-solvers, pushing the boundaries of technology.
                 </p>
                 <a 
-                    href="/signup"
+                    href="/events"
                     className="mt-10 px-8 py-3 font-mono font-bold text-lg text-white bg-gradient-to-r from-purple-600 to-indigo-600 rounded-md relative overflow-hidden group"
                 >
                     <span className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity duration-300"></span>
                     <span className="relative ">
-                        Bize Katıl
+                        Join Us
                     </span>
                 </a>
             </div>

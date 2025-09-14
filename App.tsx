@@ -107,7 +107,6 @@ const App: React.FC = () => {
     const [currentPath, setCurrentPath] = useState(window.location.pathname);
     const [isCrtMode, setIsCrtMode] = useState(false);
     const [isTerminalVisible, setIsTerminalVisible] = useState(false);
-    const [isAdminAuthenticated, setIsAdminAuthenticated] = useState(false);
 
     // Easter Egg: Konami Code
     useKonamiCode(() => {
@@ -119,13 +118,6 @@ const App: React.FC = () => {
             return newMode;
         });
     });
-
-    const handleAuthSuccess = () => {
-        setIsAdminAuthenticated(true);
-        setIsTerminalVisible(false);
-        window.history.pushState({}, '', '/admin');
-        setCurrentPath('/admin');
-    };
 
     useEffect(() => {
         const rootHtml = document.documentElement;
@@ -141,30 +133,18 @@ const App: React.FC = () => {
     }, [isCrtMode]);
 
     useEffect(() => {
+        // Eagerly initialize the audio context when the app loads.
         getAudioContext();
 
-        const checkAndHandlePath = (path: string): string => {
-            if (path === '/admin' && !isAdminAuthenticated) {
-                window.history.replaceState({}, '', '/');
-                return '/';
-            }
-            return path;
-        };
-        
         const handleLocationChange = () => {
-            const newPath = checkAndHandlePath(window.location.pathname);
-            setCurrentPath(newPath);
+            setCurrentPath(window.location.pathname);
             window.scrollTo(0, 0);
         };
-        
-        // Check initial path on mount.
-        const initialPath = checkAndHandlePath(window.location.pathname);
-        if (initialPath !== currentPath) {
-             setCurrentPath(initialPath);
-        }
 
+        // Listen for popstate event (browser back/forward)
         window.addEventListener('popstate', handleLocationChange);
         
+        // Intercept clicks on internal links to handle client-side routing
         const handleLinkClick = (e: MouseEvent) => {
             const target = e.target as HTMLElement;
             const anchor = target.closest('a');
@@ -177,21 +157,16 @@ const App: React.FC = () => {
                 !e.metaKey && !e.ctrlKey
             ) {
                 e.preventDefault();
-                const targetPath = anchor.pathname;
-                
-                // Although no direct links to /admin exist, this is a safeguard.
-                if (targetPath === '/admin' && !isAdminAuthenticated) return;
-
-                if (targetPath !== window.location.pathname) {
-                    window.history.pushState({}, '', targetPath);
-                    setCurrentPath(targetPath);
-                    window.scrollTo(0, 0);
+                if (anchor.pathname !== window.location.pathname) {
+                    window.history.pushState({}, '', anchor.pathname);
+                    handleLocationChange();
                 }
             }
         };
         
         document.addEventListener('click', handleLinkClick);
 
+        // Also handle keyboard navigation for the terminal
         const handleKeyDown = (e: KeyboardEvent) => {
             if (isTerminalVisible && e.key === 'Escape') {
                 setIsTerminalVisible(false);
@@ -204,7 +179,7 @@ const App: React.FC = () => {
             document.removeEventListener('click', handleLinkClick);
             window.removeEventListener('keydown', handleKeyDown);
         };
-    }, [isTerminalVisible, isAdminAuthenticated, currentPath]);
+    }, [isTerminalVisible]);
     
     const handleLoadingComplete = () => {
         setLoading(false);
@@ -238,7 +213,7 @@ const App: React.FC = () => {
 
             <Chatbot />
 
-            {isTerminalVisible && <Terminal onClose={() => setIsTerminalVisible(false)} onAuthSuccess={handleAuthSuccess} />}
+            {isTerminalVisible && <Terminal onClose={() => setIsTerminalVisible(false)} />}
         </div>
     );
 };

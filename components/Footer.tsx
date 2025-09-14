@@ -44,8 +44,8 @@ const Footer: React.FC<FooterProps> = ({ onTriggerTerminal }) => {
                 <div className="flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-8">
                     <div>
                         <h3 className="text-[clamp(1.25rem,5vw,1.5rem)] font-bold font-mono glitch-hover" data-text="ACM Hacettepe">ACM Hacettepe</h3>
-                        <p className="text-slate-400 mt-2">Geleceğe yön verenler.</p>
-                        <a href="mailto:iletisim@acmhacettepe.com" className="text-purple-400 font-mono text-sm mt-1">iletisim@acmhacettepe.com</a>
+                        <p className="text-slate-400 mt-2">Connecting the future of computing.</p>
+                        <p className="text-purple-400 font-mono text-sm mt-1">contact@acmhacettepe.org</p>
                     </div>
                     <div className="flex space-x-6">
                         {socialLinks.map((item) => (
@@ -57,11 +57,11 @@ const Footer: React.FC<FooterProps> = ({ onTriggerTerminal }) => {
                     </div>
                 </div>
                 <div className="mt-12 pt-8 border-t border-slate-800 text-center font-mono text-slate-500 text-sm">
-                    <p>&copy; {new Date().getFullYear()} ACM Hacettepe Öğrenci Topluluğu. Tüm hakları saklıdır.</p>
+                    <p>&copy; {new Date().getFullYear()} ACM Hacettepe Student Chapter. All rights reserved.</p>
                     <p 
                         className="mt-1 text-purple-500/50 cursor-pointer hover:text-purple-400/80 transition-colors"
                         onClick={handleTerminalTriggerClick}
-                        title="Buna bi'kaç kez tıklasam nolur ki?"
+                        title="What could this do?"
                     >
                         {'>'} exit(0)
                     </p>
