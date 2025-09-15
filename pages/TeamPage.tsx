@@ -38,7 +38,7 @@ const TeamPage: React.FC = () => {
     }, []); // TEAM_DATA is a constant, so the dependency array is empty.
 
     return (
-    <Section id="team" title="[Meet_The_Team]" className="min-h-screen w-full">
+    <Section id="team" title="[Ekibimiz]" className="min-h-screen w-full">
             {/* Mobile & Tablet Layout: A responsive grid that adapts to screen size. */}
             {mounted && (
                 <div className="grid grid-cols-1 gap-8 lg:hidden min-h-screen py-8">

@@ -41,7 +41,7 @@ const Header: React.FC = () => {
                                 {link.name}
                             </a>
                         ))}
-                        <a href="/signup" className="px-5 py-2 font-mono font-bold text-white bg-gradient-to-r from-purple-600 to-indigo-600 rounded-md transition-all duration-300 hover:opacity-90 hover:shadow-[0_0_15px_theme(colors.purple.500)]">
+                        <a href="/uyeol" className="px-5 py-2 font-mono font-bold text-white bg-gradient-to-r from-purple-600 to-indigo-600 rounded-md transition-all duration-300 hover:opacity-90 hover:shadow-[0_0_15px_theme(colors.purple.500)]">
                             Üye Ol
                         </a>
                     </nav>
@@ -64,7 +64,7 @@ const Header: React.FC = () => {
                                 {link.name}
                             </a>
                         ))}
-                        <a href="/signup" onClick={toggleMenu} className="mt-4 px-6 py-3 font-mono font-bold text-lg text-white bg-gradient-to-r from-purple-600 to-indigo-600 rounded-md transition-all duration-300 hover:opacity-90 hover:shadow-[0_0_15px_theme(colors.purple.500)]">
+                        <a href="/uyeol" onClick={toggleMenu} className="mt-4 px-6 py-3 font-mono font-bold text-lg text-white bg-gradient-to-r from-purple-600 to-indigo-600 rounded-md transition-all duration-300 hover:opacity-90 hover:shadow-[0_0_15px_theme(colors.purple.500)]">
                             Üye Ol
                         </a>
                     </nav>

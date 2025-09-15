@@ -25,11 +25,11 @@ const INITIAL_SUGGESTIONS = [
 ];
 
 const pageLinks = [
-    { href: '/team', keywords: ['team page', 'ekip sayfası', 'takım sayfası'] },
-    { href: '/events', keywords: ['events page', 'etkinlikler sayfamızdaki', 'etkinlikler sayfası', 'etkinlikler sayfasında'] },
-    { href: '/contact', keywords: ['contact page', 'iletişim sayfasında', 'iletişim sayfası'] },
-    { href: '/signup', keywords: ['sign up', 'kayıt formu', 'kayıt sayfası', 'sign up page'] },
-    { href: '/about', keywords: ['about page', 'hakkında sayfası', 'hakkımızda sayfası'] },
+    { href: '/ekip', keywords: ['team page', 'ekip sayfası', 'takım sayfası'] },
+    { href: '/etkinlikler', keywords: ['events page', 'etkinlikler sayfamızdaki', 'etkinlikler sayfası', 'etkinlikler sayfasında'] },
+    { href: '/iletisim', keywords: ['contact page', 'iletişim sayfasında', 'iletişim sayfası'] },
+    { href: '/uyeol', keywords: ['sign up', 'kayıt formu', 'kayıt sayfası', 'sign up page'] },
+    { href: '/hakkimizda', keywords: ['about page', 'hakkında sayfası', 'hakkımızda sayfası'] },
     { href: '/', keywords: ['home page', 'ana sayfa'] },
 ];
 

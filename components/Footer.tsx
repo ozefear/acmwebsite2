@@ -1,11 +1,13 @@
 import React, { useState, useRef } from 'react';
-import { GithubIcon, TwitterIcon, LinkedinIcon } from './icons/SocialIcons';
+import { GithubIcon, TwitterIcon, LinkedinIcon, InstagramIcon } from './icons/SocialIcons';
 
 const socialLinks = [
-    { name: 'GitHub', href: '#', icon: GithubIcon },
-    { name: 'Twitter', href: '#', icon: TwitterIcon },
-    { name: 'LinkedIn', href: '#', icon: LinkedinIcon },
+    { name: 'GitHub', href: 'https://github.com/ACMHacettepeDevelopers', icon: GithubIcon },
+    { name: 'Twitter', href: 'https://x.com/acmhacettepe', icon: TwitterIcon },
+    { name: 'LinkedIn', href: 'https://www.linkedin.com/company/acm-hacettepe', icon: LinkedinIcon },
+    { name: 'Instagram', href: 'https://www.instagram.com/acmhacettepe', icon: InstagramIcon },
 ];
+
 
 interface FooterProps {
     onTriggerTerminal: () => void;
@@ -44,8 +46,8 @@ const Footer: React.FC<FooterProps> = ({ onTriggerTerminal }) => {
                 <div className="flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-8">
                     <div>
                         <h3 className="text-[clamp(1.25rem,5vw,1.5rem)] font-bold font-mono glitch-hover" data-text="ACM Hacettepe">ACM Hacettepe</h3>
-                        <p className="text-slate-400 mt-2">Connecting the future of computing.</p>
-                        <p className="text-purple-400 font-mono text-sm mt-1">contact@acmhacettepe.org</p>
+                        <p className="text-slate-400 mt-2">Geleceğe yön verenler.</p>
+                        <a href="mailto:iletisim@acmhacettepe.com" className="text-purple-400 font-mono text-sm mt-1">iletisim@acmhacettepe.com</a>
                     </div>
                     <div className="flex space-x-6">
                         {socialLinks.map((item) => (
@@ -57,11 +59,11 @@ const Footer: React.FC<FooterProps> = ({ onTriggerTerminal }) => {
                     </div>
                 </div>
                 <div className="mt-12 pt-8 border-t border-slate-800 text-center font-mono text-slate-500 text-sm">
-                    <p>&copy; {new Date().getFullYear()} ACM Hacettepe Student Chapter. All rights reserved.</p>
+                    <p>&copy; {new Date().getFullYear()} ACM Hacettepe Öğrenci Topluluğu. Tüm hakları saklıdır.</p>
                     <p 
                         className="mt-1 text-purple-500/50 cursor-pointer hover:text-purple-400/80 transition-colors"
                         onClick={handleTerminalTriggerClick}
-                        title="What could this do?"
+                        title="Buna bi'kaç kez tıklasam nolur ki?"
                     >
                         {'>'} exit(0)
                     </p>

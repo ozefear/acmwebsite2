@@ -37,7 +37,7 @@ const Lightbox: React.FC<LightboxProps> = ({ images, currentIndex, onClose, onNe
             <button 
                 className="absolute top-5 right-5 text-slate-300 hover:text-purple-500 transition-colors z-50"
                 onClick={onClose}
-                aria-label="Close gallery"
+                aria-label="Galeriyi kapat"
             >
                 <XIcon className="w-10 h-10" />
             </button>
@@ -46,7 +46,7 @@ const Lightbox: React.FC<LightboxProps> = ({ images, currentIndex, onClose, onNe
             <button
                 className="absolute left-5 text-slate-300 hover:text-purple-500 transition-colors z-50 p-2 bg-black/30 rounded-full"
                 onClick={(e) => { e.stopPropagation(); onPrev(); }}
-                aria-label="Previous image"
+                aria-label="Önceki resim"
             >
                 <ArrowLeftIcon className="w-8 h-8" />
             </button>
@@ -55,7 +55,7 @@ const Lightbox: React.FC<LightboxProps> = ({ images, currentIndex, onClose, onNe
             <div className="relative max-w-[90vw] max-h-[90vh]" onClick={e => e.stopPropagation()}>
                 <img 
                     src={images[currentIndex]} 
-                    alt={`Event gallery image ${currentIndex + 1}`} 
+                    alt={`Resim ${currentIndex + 1}`} 
                     className="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl shadow-purple-500/20"
                 />
             </div>
@@ -64,7 +64,7 @@ const Lightbox: React.FC<LightboxProps> = ({ images, currentIndex, onClose, onNe
             <button
                 className="absolute right-5 text-slate-300 hover:text-purple-500 transition-colors z-50 p-2 bg-black/30 rounded-full"
                 onClick={(e) => { e.stopPropagation(); onNext(); }}
-                aria-label="Next image"
+                aria-label="Sonraki resim"
             >
                 <ArrowRightIcon className="w-8 h-8" />
             </button>

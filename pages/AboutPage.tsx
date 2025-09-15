@@ -4,7 +4,7 @@ import GlowPanel from '../components/GlowPanel';
 
 const AboutPage: React.FC = () => {
     return (
-        <Section id="about" title="[About_Us]">
+        <Section id="about" title="[Hakkımızda]">
             <div className="space-y-20 md:space-y-28">
 
                 {/* Section 1: What is ACM? */}

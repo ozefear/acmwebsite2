@@ -5,6 +5,7 @@ import SysInfo from './SysInfo';
 
 interface TerminalProps {
     onClose: () => void;
+    onAuthSuccess: () => void;
 }
 
 type Output = {
@@ -54,7 +55,9 @@ const ROBOT_ART = [
 
 const MATRIX_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 
-const Terminal: React.FC<TerminalProps> = ({ onClose }) => {
+const PASSCODE = 'morzai-admin-access';
+
+const Terminal: React.FC<TerminalProps> = ({ onClose, onAuthSuccess }) => {
     const [history, setHistory] = useState<Output[]>([
         { type: 'output', content: WELCOME_MESSAGE }
     ]);
@@ -154,6 +157,16 @@ const Terminal: React.FC<TerminalProps> = ({ onClose }) => {
             case 'exit':
                 onClose();
                 return;
+            case 'sudo':
+                if (args[0] === PASSCODE) {
+                    newHistory.push({ type: 'output', content: 'Authentication successful. Accessing admin mainframe...' });
+                    setHistory(newHistory);
+                    setTimeout(onAuthSuccess, 1000);
+                    return;
+                } else {
+                    newHistory.push({ type: 'error', content: 'sudo: incorrect password' });
+                }
+                break;
             case '':
                 break;
             default:

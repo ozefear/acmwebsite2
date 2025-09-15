@@ -6,9 +6,11 @@ import AnnouncementCard from './AnnouncementCard';
 const Announcements: React.FC = () => {
     return (
         <Section id="announcements" title="[Latest_Announcements]">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="flex overflow-x-auto space-x-8 pb-6 custom-scrollbar">
                 {ANNOUNCEMENTS_DATA.map(announcement => (
-                    <AnnouncementCard key={announcement.id} announcement={announcement} />
+                    <div key={announcement.id} className="w-[300px] sm:w-[350px] flex-shrink-0">
+                        <AnnouncementCard announcement={announcement} />
+                    </div>
                 ))}
             </div>
         </Section>
